@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 // import { HttpModule } from '@angular/http'; no longer needed from angular 8 onwards
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
+import { ServersComponent } from './servers/servers.component';
 
 @NgModule({
-  declarations: [AppComponent, ServerComponent],
+  declarations: [AppComponent, ServerComponent, ServersComponent],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
