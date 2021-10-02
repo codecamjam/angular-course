@@ -12,5 +12,19 @@
 <!-- <p [innerText]="allowNewServer"></p> -->
 <!-- <p>{{ allowNewServer }}</p> -->
 <p>{{ serverCreationStatus }}</p>
+<!-- USER NAME CHALLENGE ASSIGNMENT   -->
+<!--  -->
+<!--  -->
+<!--  -->
+<label for="">User name</label>
+<input type="text" class="form-control" [(ngModel)]="userName" />
+<p>{{ userName }}</p>
+<button
+  class="btn btn-warning"
+  [disabled]="!userName"
+  (click)="resetUserName()"
+>
+  Reset User name
+</button>
 <app-server></app-server>
 <app-server></app-server>
