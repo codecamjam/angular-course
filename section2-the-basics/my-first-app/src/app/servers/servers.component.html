@@ -11,20 +11,8 @@
 </button>
 <!-- <p [innerText]="allowNewServer"></p> -->
 <!-- <p>{{ allowNewServer }}</p> -->
-<p>{{ serverCreationStatus }}</p>
-<!-- USER NAME CHALLENGE ASSIGNMENT   -->
-<!--  -->
-<!--  -->
-<!--  -->
-<label for="">User name</label>
-<input type="text" class="form-control" [(ngModel)]="userName" />
-<p>{{ userName }}</p>
-<button
-  class="btn btn-warning"
-  [disabled]="!userName"
-  (click)="resetUserName()"
->
-  Reset User name
-</button>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<!-- Structural directives start with * (they change the dom) -->
+<p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
 <app-server></app-server>
 <app-server></app-server>
