@@ -1,0 +1,10 @@
+<button (click)="handleClick()">Display Details</button>
+<p *ngIf="display">Look at me! I'm an angular guy now</p>
+<h5>CLICKS:</h5>
+<div
+  *ngFor="let logItem of log"
+  [ngStyle]="{ backgroundColor: logItem >= 5 ? 'blue' : 'transparent' }"
+  [ngClass]="{ 'white-text': logItem >= 5 }"
+>
+  {{ logItem }}
+</div>
