@@ -1,11 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{ element.name }}</div>
   <div class="panel-body">
-    <p>
-      <strong *ngIf="element.type === 'server'" style="color: red">{{
-        element.content
-      }}</strong>
-      <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-    </p>
+    <!-- example of projecting (to pass whatever content was nested between app-server in the app.component.html template) -->
+    <ng-content> </ng-content>
   </div>
 </div>
