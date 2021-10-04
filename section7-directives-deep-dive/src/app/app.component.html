@@ -32,7 +32,14 @@
         </div>
       </ul>
       <p appBasicHighlight>Style me with basic directive!</p>
-      <p appBetterHighlight>Style me with better directive!</p>
+      <!-- <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'"> -->
+      <!-- <p [appBetterHighlight]="'red'" [defaultColor]="'yellow'"> -->
+      <!-- if you remove sq brackets and remove the single ticks, it works (For defaultColor) -->
+      <!-- be careful doing this though: make sure nobody thinks this could be a real
+      attribute existing on the element you placed it on -->
+      <p [appBetterHighlight]="'red'" defaultColor="yellow">
+        Style me with better directive!
+      </p>
     </div>
   </div>
 </div>
