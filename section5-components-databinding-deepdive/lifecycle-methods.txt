@@ -1,0 +1,40 @@
+ngOnChanges: called after a bound input property changes
+    -can be executed multiple times 
+    right at the start when component is created and also called
+    whenever our bound input properties changes (@Input properties - whenever
+    they receive new values)
+
+ngOnInit: Called once the component is initialized (kinda like component did mount)
+    -hasnt been displayed yet on the dom
+    -basic initialization and props are accessible now  (object was created)
+    -runs after constructor
+
+ngDoCheck: Called during every change detection run
+    -runs multiple times (alot) bc it runs when change detection runs
+    -change detection is system ang determines whether template changed inside the component
+    -decides if the template needs to update basically
+    -executed on every check angular makes (alot of times it runs bc you clicked even though
+    it doesnt change anything. basically if any event/observable/timeout
+    is emitted, this function runs)
+
+ngAfterContentInit: called after content (ng-content) has been projected into view
+    -called whenever the content is projected has been iniatlized 
+    -not the component itself but the view of the parent component,
+    especially the part thats added to the component with ng-content
+
+ngAfterContentChecked: called every time the projected content has been checked
+    -runs whenever change detection checked this content we are projecting into our component
+
+ngAfterViewInit: called after the component's view (and child views) has been initialized
+    -once our view has been rendered
+
+ngAfterViewChecked: called every time the view (and child views) have been checked
+    -called whenever our view has been checked so once we are sure that 
+    either all changes that needed to be done were displayed in view or
+    no changes were detected by angular
+
+ngOnDestroy: called once the component is about to be destroyed
+    -great place to do cleanup bc object will be destroyed after angular
+
+
+
