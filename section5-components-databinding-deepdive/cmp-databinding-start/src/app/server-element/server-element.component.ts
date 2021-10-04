@@ -11,8 +11,10 @@ import {
   AfterViewInit,
   AfterViewChecked,
   OnDestroy,
+  ViewChild,
+  ElementRef,
+  ContentChild,
 } from "@angular/core";
-import { ConsoleReporter } from "jasmine";
 
 @Component({
   selector: "app-server-element",
@@ -34,13 +36,14 @@ export class ServerElementComponent
 {
   @Input("srvElement") element: { type: string; name: string; content: string };
   @Input() name: string;
+  @ViewChild("heading", { static: true }) header: ElementRef;
+  @ContentChild("contentParagraph", { static: true }) paragraph: ElementRef;
 
   constructor() {
     console.log("constructor called");
   }
 
   // {element: SimpleChange}element: SimpleChangecurrentValue: content: "Just a test"name: "Testserver"type: "server"[[Prototype]]: ObjectfirstChange: truepreviousValue: undefined
-
   ngOnChanges(changes: SimpleChanges) {
     console.log("ngOnChanges called");
     console.log(changes);
@@ -48,6 +51,11 @@ export class ServerElementComponent
 
   ngOnInit(): void {
     console.log("ngOnInit called");
+    //doesnt show
+    console.log("TEXT CONTENT: " + this.header.nativeElement.textContent);
+    console.log(
+      "TEXT CONTENT OF PARAGRAPH: " + this.paragraph.nativeElement.textContent
+    );
   }
 
   //in development mode, on inital load, ngDoCheck is called
@@ -69,8 +77,15 @@ export class ServerElementComponent
   }
 
   //called after content checked
+  //gives you access to the template elements
+  //cannot access template elements until this function because it hasnt been rendered yet
   ngAfterViewInit() {
     console.log("ngAfterViewInit called");
+    //THIS WILL SHOW
+    console.log("TEXT CONTENT: " + this.header.nativeElement.textContent);
+    console.log(
+      "TEXT CONTENT OF PARAGRAPH: " + this.paragraph.nativeElement.textContent
+    );
   }
 
   //called after content checked
