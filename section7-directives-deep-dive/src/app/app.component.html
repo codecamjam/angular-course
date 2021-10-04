@@ -6,7 +6,7 @@
       </button>
       <br /><br />
       <ul class="list-group">
-        <div *ngIf="onlyOdd">
+        <!-- <div *ngIf="onlyOdd">
           <li
             class="list-group-item"
             *ngFor="let odd of oddNumbers"
@@ -17,8 +17,8 @@
           >
             {{ odd }}
           </li>
-        </div>
-        <div *ngIf="!onlyOdd">
+        </div> -->
+        <!-- <div *ngIf="!onlyOdd">
           <li
             class="list-group-item"
             *ngFor="let even of evenNumbers"
@@ -29,7 +29,7 @@
           >
             {{ even }}
           </li>
-        </div>
+        </div> -->
         <!-- this is what the * essentially does (in a structural directive) -->
         <!-- <ng-template [ngIf]="!onlyOdd">
           <div>
@@ -45,6 +45,18 @@
           </li>
           </div>
         </ng-template> -->
+        <div *appUnless="onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let odd of oddNumbers"
+            [ngClass]="{ odd: odd % 2 !== 0 }"
+            [ngStyle]="{
+              backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'
+            }"
+          >
+            {{ odd }}
+          </li>
+        </div>
       </ul>
       <p appBasicHighlight>Style me with basic directive!</p>
       <!-- <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'"> -->
