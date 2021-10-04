@@ -1,0 +1,8 @@
+.app {
+  border: 2px solid black;
+  margin: 2rem;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+}
