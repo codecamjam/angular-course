@@ -24,6 +24,6 @@ export class ServersComponent implements OnInit {
     //this method doesnt know which route/path you're currently on
     //so you dont need to include the / in servers
     //to tell it where we are we pass a 2nd option
-    this.router.navigate(["servers"], { relativeTo: this.route });
+    // this.router.navigate(["servers"], { relativeTo: this.route });
   }
 }
