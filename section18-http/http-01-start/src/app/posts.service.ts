@@ -1,23 +1,30 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 import { map } from "rxjs/operators";
 import { Post } from "./post.model";
 
 @Injectable({ providedIn: "root" })
 export class PostsService {
+  error = new Subject<string>();
+
   constructor(private http: HttpClient) {}
 
   createAndStorePost(title: string, content: string) {
     const postData: Post = { title, content };
-
     this.http
       .post<{ name: string }>(
         "https://ng-complete-guide-5f9d7-default-rtdb.firebaseio.com/posts.json",
         postData
       )
-      .subscribe((responseData) => {
-        console.log(responseData);
-      }); //requests are only sent when you subscribe
+      .subscribe(
+        (responseData) => {
+          console.log(responseData);
+        },
+        (error) => {
+          this.error.next(error.message);
+        }
+      ); //requests are only sent when you subscribe
   }
 
   fetchPosts() {
