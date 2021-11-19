@@ -13,7 +13,7 @@ import { RecipesRoutingModule } from "./recipes-routing.module";
 
 @NgModule({
   declarations: [
-    RecipesComponent,
+    //RecipesComponent,
     RecipeListComponent,
     RecipeDetailComponent,
     RecipeItemComponent,
@@ -26,13 +26,8 @@ import { RecipesRoutingModule } from "./recipes-routing.module";
     ReactiveFormsModule,
     RecipesRoutingModule,
   ],
-  exports: [
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    RecipeStartComponent,
-    RecipeEditComponent,
-  ],
+  //because we are using recipe routing module, we dont need to export them
+  //because we arent using them in app component or children of
+  //app component
 })
 export class RecipesModule {}
